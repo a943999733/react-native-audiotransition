@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-audiotransition",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "音频格式转换",
   "main": "index.js",
   "scripts": {
