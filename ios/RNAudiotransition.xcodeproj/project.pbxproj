@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNAudiotransition.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNAudiotransition.m */; };
+		F5665C2625149D4C00D68A24 /* PFAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5665C2125149D4C00D68A24 /* PFAudio.mm */; };
+		F5665C2725149D4C00D68A24 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5665C2325149D4C00D68A24 /* libmp3lame.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,10 @@
 		134814201AA4EA6300B7C361 /* libRNAudiotransition.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAudiotransition.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNAudiotransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAudiotransition.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNAudiotransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAudiotransition.m; sourceTree = "<group>"; };
+		F5665C2125149D4C00D68A24 /* PFAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFAudio.mm; sourceTree = "<group>"; };
+		F5665C2325149D4C00D68A24 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		F5665C2425149D4C00D68A24 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		F5665C2525149D4C00D68A24 /* PFAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAudio.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5665C2725149D4C00D68A24 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +59,20 @@
 			children = (
 				B3E7B5881CC2AC0600A0062D /* RNAudiotransition.h */,
 				B3E7B5891CC2AC0600A0062D /* RNAudiotransition.m */,
+				F5665C2225149D4C00D68A24 /* lame */,
+				F5665C2525149D4C00D68A24 /* PFAudio.h */,
+				F5665C2125149D4C00D68A24 /* PFAudio.mm */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		F5665C2225149D4C00D68A24 /* lame */ = {
+			isa = PBXGroup;
+			children = (
+				F5665C2325149D4C00D68A24 /* libmp3lame.a */,
+				F5665C2425149D4C00D68A24 /* lame.h */,
+			);
+			path = lame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +114,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -112,6 +132,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5665C2625149D4C00D68A24 /* PFAudio.mm in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNAudiotransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,12 +225,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
+					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lame",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNAudiotransition;
 				SKIP_INSTALL = YES;
@@ -225,7 +249,10 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lame",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNAudiotransition;
 				SKIP_INSTALL = YES;
